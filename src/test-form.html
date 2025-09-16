@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Forms Entry ID Test</title>
+</head>
+<body>
+    <h1>Google Forms Test</h1>
+    
+    <!-- Direct submission test form -->
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSf8_SySv9tWKlUS98lwirO_SRiJjnISRE8JRO5tIOrKmuM2mQ/formResponse" method="POST" target="_blank">
+        <p>
+            <label>Student Name:</label><br>
+            <input type="text" name="entry.1044685915" value="Test Student" required>
+        </p>
+        
+        <p>
+            <label>Phone Number:</label><br>
+            <input type="text" name="entry.2043673781" value="555-1234" required>
+        </p>
+        
+        <p>
+            <label>Source:</label><br>
+            <input type="text" name="entry.1782156686" value="tutoring" required>
+        </p>
+        
+        <p>
+            <input type="submit" value="Test Submit">
+        </p>
+    </form>
+
+    <hr>
+    
+    <h2>How to get correct Entry IDs:</h2>
+    <ol>
+        <li>Go to your Google Form</li>
+        <li>Click the preview button (eye icon)</li>
+        <li>Right-click on the first field → Inspect Element</li>
+        <li>Look for name="entry.XXXXXXXX" in the HTML</li>
+        <li>That's your entry ID for that field</li>
+        <li>Repeat for each field</li>
+    </ol>
+    
+    <h2>Common Issues:</h2>
+    <ul>
+        <li>Form not accepting responses (check form settings)</li>
+        <li>Wrong entry IDs (they change when you modify the form)</li>
+        <li>Field types don't match (e.g., trying to send text to a date field)</li>
+        <li>Required fields missing</li>
+    </ul>
+</body>
+</html>
