@@ -23,41 +23,67 @@ type PageKey =
   | "complaints"
   | PersonaPageKey;
 
+const personaMap: Partial<Record<string, PersonaKey>> = {
+  athlete: 'athlete',
+  adhd: 'adhd',
+  immigrant: 'immigrant',
+  artist: 'artist',
+};
+
+function getPageFromLocation(): PageKey {
+  const { pathname, search } = window.location;
+  // Tutoring routes
+  if (pathname === '/tutoring' || pathname.startsWith('/tutoring/')) {
+    const params = new URLSearchParams(search);
+    const raw = (params.get('audience') || '').toLowerCase();
+    const persona = raw ? personaMap[raw] : undefined;
+    if (persona) return `tutoring-${persona}` as PageKey;
+    return 'tutoring';
+  }
+  // Summit program route
+  if (pathname === '/summit' || pathname.startsWith('/summit/')) {
+    return 'program';
+  }
+  // Legal/info routes
+  if (pathname === '/privacy') return 'privacy';
+  if (pathname === '/terms') return 'terms';
+  if (pathname === '/student-rights') return 'student-rights';
+  if (pathname === '/complaints') return 'complaints';
+  return 'home';
+}
+
+function navigate(path: string, page: PageKey) {
+  if (typeof window !== 'undefined') {
+    const cur = window.location.pathname + window.location.search + window.location.hash;
+    if (cur !== path) {
+      window.history.pushState({}, '', path);
+    }
+  }
+  return page;
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageKey>('home');
+  const [currentPage, setCurrentPage] = useState<PageKey>(getPageFromLocation());
   const [fitCheckSource, setFitCheckSource] = useState<'tutoring' | 'program'>('tutoring'); // Track fit check source
 
   const goToFitCheck = (source: 'tutoring' | 'program' = 'tutoring') => {
     setFitCheckSource(source);
     setCurrentPage('fit-check');
   };
-  const goToHome = () => setCurrentPage('home');
-  const goToTutoring = () => setCurrentPage('tutoring');
-  const goToProgram = () => setCurrentPage('program');
-  const goToPrivacy = () => setCurrentPage('privacy');
-  const goToTerms = () => setCurrentPage('terms');
-  const goToStudentRights = () => setCurrentPage('student-rights');
-  const goToComplaints = () => setCurrentPage('complaints');
+  const goToHome = () => setCurrentPage(navigate('/', 'home'));
+  const goToTutoring = () => setCurrentPage(navigate('/tutoring', 'tutoring'));
+  const goToProgram = () => setCurrentPage(navigate('/summit', 'program'));
+  const goToPrivacy = () => setCurrentPage(navigate('/privacy', 'privacy'));
+  const goToTerms = () => setCurrentPage(navigate('/terms', 'terms'));
+  const goToStudentRights = () => setCurrentPage(navigate('/student-rights', 'student-rights'));
+  const goToComplaints = () => setCurrentPage(navigate('/complaints', 'complaints'));
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const audienceParam = params.get('audience');
-    if (!audienceParam) {
-      return;
-    }
-
-    const normalized = audienceParam.toLowerCase();
-    const personaMap: Partial<Record<string, PersonaKey>> = {
-      athlete: 'athlete',
-      adhd: 'adhd',
-      immigrant: 'immigrant',
-      artist: 'artist',
-    };
-
-    const persona = personaMap[normalized];
-    if (persona) {
-      setCurrentPage(`tutoring-${persona}`);
-    }
+    const onPop = () => setCurrentPage(getPageFromLocation());
+    window.addEventListener('popstate', onPop);
+    // Sync once on mount as well
+    setCurrentPage(getPageFromLocation());
+    return () => window.removeEventListener('popstate', onPop);
   }, []);
 
   if (currentPage === 'tutoring') {
