@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowLeft, Menu, X, ExternalLink } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 
 interface TutoringHeaderRevampedProps {
   onReturn: () => void;

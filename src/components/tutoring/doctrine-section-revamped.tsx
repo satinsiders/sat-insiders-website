@@ -1,4 +1,3 @@
-import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { motion } from "motion/react";
 import { Brain, X, Target, Lightbulb, TrendingUp } from "lucide-react";

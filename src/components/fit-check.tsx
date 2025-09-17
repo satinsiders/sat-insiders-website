@@ -307,7 +307,7 @@ export function FitCheck({ onReturn, source = 'tutoring' }: FitCheckProps) {
                 <Label>Previous tutoring experience?</Label>
                 <RadioGroup
                   value={formData.previousTutoring}
-                  onValueChange={(value) =>
+                  onValueChange={(value: string) =>
                     setFormData((prev) => ({
                       ...prev,
                       previousTutoring: value,
@@ -390,7 +390,7 @@ export function FitCheck({ onReturn, source = 'tutoring' }: FitCheckProps) {
                 </Label>
                 <RadioGroup
                   value={formData.timeline}
-                  onValueChange={(value) =>
+                  onValueChange={(value: string) =>
                     setFormData((prev) => ({
                       ...prev,
                       timeline: value,

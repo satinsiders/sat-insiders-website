@@ -104,6 +104,39 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip;
 
+type ChartTooltipItem = {
+  color?: string;
+  fill?: string;
+  name?: string | number;
+  dataKey?: string | number;
+  value?: number | string;
+  payload?: Record<string, unknown> & { fill?: string };
+};
+
+type ChartTooltipContentProps = React.HTMLAttributes<HTMLDivElement> & {
+  active?: boolean;
+  payload?: ChartTooltipItem[];
+  hideLabel?: boolean;
+  hideIndicator?: boolean;
+  indicator?: "line" | "dot" | "dashed";
+  label?: string | number;
+  labelFormatter?: (
+    value: React.ReactNode,
+    payload?: ChartTooltipItem[],
+  ) => React.ReactNode;
+  labelClassName?: string;
+  formatter?: (
+    value: ChartTooltipItem["value"],
+    name: ChartTooltipItem["name"],
+    item: ChartTooltipItem,
+    index: number,
+    payload?: ChartTooltipItem["payload"],
+  ) => React.ReactNode;
+  color?: string;
+  nameKey?: string;
+  labelKey?: string;
+};
+
 function ChartTooltipContent({
   active,
   payload,
@@ -118,14 +151,8 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-  React.ComponentProps<"div"> & {
-    hideLabel?: boolean;
-    hideIndicator?: boolean;
-    indicator?: "line" | "dot" | "dashed";
-    nameKey?: string;
-    labelKey?: string;
-  }) {
+  ...props
+}: ChartTooltipContentProps) {
   const { config } = useChart();
 
   const tooltipLabel = React.useMemo(() => {
@@ -176,13 +203,15 @@ function ChartTooltipContent({
         "border-border/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl",
         className,
       )}
+      {...props}
     >
       {!nestLabel ? tooltipLabel : null}
       <div className="grid gap-1.5">
-        {payload.map((item, index) => {
+        {(payload ?? []).map((item, index) => {
           const key = `${nameKey || item.name || item.dataKey || "value"}`;
           const itemConfig = getPayloadConfigFromPayload(config, item, key);
-          const indicatorColor = color || item.payload.fill || item.color;
+          const indicatorColor =
+            color || item.payload?.fill || item.color;
 
           return (
             <div

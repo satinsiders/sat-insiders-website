@@ -1,4 +1,4 @@
-import { TutoringHeader } from "../components/tutoring/tutoring-header-revamped";
+import { TutoringHeaderRevamped } from "../components/tutoring/tutoring-header-revamped";
 import { HeroRevamped } from "../components/tutoring/hero-revamped";
 import { DoctrineSectionRevamped } from "../components/tutoring/doctrine-section-revamped";
 import { MechanismSectionRevamped } from "../components/tutoring/mechanism-section-revamped";
@@ -42,7 +42,7 @@ export function TutoringPageRevamped({ onReturn, onGoToFitCheck }: TutoringPageP
 
   return (
     <div className="min-h-screen bg-background">
-      <TutoringHeader 
+      <TutoringHeaderRevamped
         onReturn={onReturn}
         onStartFitCheck={goToFitCheck}
         onScrollToSection={scrollToSection}
@@ -63,7 +63,7 @@ export function TutoringPageRevamped({ onReturn, onGoToFitCheck }: TutoringPageP
           <ProofSectionRevamped />
         </section>
         
-        <WhoThisIsForRevamped onStartFitCheck={goToFitCheck} />
+        <WhoThisIsForRevamped />
         
         <section id="governance" className="relative">
           <GovernanceSectionRevamped />

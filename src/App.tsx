@@ -25,24 +25,6 @@ export default function App() {
   const goToStudentRights = () => setCurrentPage('student-rights');
   const goToComplaints = () => setCurrentPage('complaints');
 
-  // Scroll to section helper
-  const scrollToSection = (sectionId: string) => {
-    if (currentPage !== 'home') {
-      setCurrentPage('home');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
   if (currentPage === 'tutoring') {
     return <TutoringPage onReturn={goToHome} onGoToFitCheck={() => goToFitCheck('tutoring')} />;
   }

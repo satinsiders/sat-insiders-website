@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Badge } from "./ui/badge";
 import { TrendingUp, Target } from "lucide-react";
@@ -44,10 +44,6 @@ export function ConfidenceCalibrationMatrix() {
 
   const getPointColor = (point: DataPoint) => {
     return point.phase === 'before' ? 'var(--warning-amber)' : 'var(--success-emerald)';
-  };
-
-  const calculateCalibrationScore = (confidence: number, accuracy: number) => {
-    return Math.max(0, 100 - Math.abs(confidence - accuracy));
   };
 
   return (

@@ -1,7 +1,7 @@
 import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { motion } from "motion/react";
-import { GraduationCap, Award, Users, Target } from "lucide-react";
+import { GraduationCap, Award, Target } from "lucide-react";
 
 export function AuthoritySection() {
   const credentials = [

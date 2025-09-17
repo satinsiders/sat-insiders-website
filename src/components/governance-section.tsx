@@ -1,6 +1,6 @@
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Shield, Users, BarChart3, AlertCircle } from "lucide-react";
+import { Shield, BarChart3, AlertCircle } from "lucide-react";
 
 export function GovernanceSection() {
   const scenarios = [

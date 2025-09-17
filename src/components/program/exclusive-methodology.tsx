@@ -1,7 +1,7 @@
 import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { motion } from "motion/react";
-import { Brain, Zap, Shield, Crown, Target, TrendingUp } from "lucide-react";
+import { Brain, Zap, Crown, Target } from "lucide-react";
 
 export function ExclusiveMethodology() {
   const pillars = [

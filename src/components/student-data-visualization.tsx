@@ -1,16 +1,11 @@
 import { useState } from "react";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
 import { motion } from "motion/react";
 import {
-  BarChart3,
-  TrendingUp,
   Target,
-  Calendar,
   Zap,
   Brain,
-  Timer,
   Award,
 } from "lucide-react";
 
