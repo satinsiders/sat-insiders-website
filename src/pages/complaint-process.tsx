@@ -1,7 +1,7 @@
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import { ArrowLeft, AlertTriangle, MessageSquare, Search, CheckCircle, Clock, Phone } from "lucide-react";
+import { ArrowLeft, AlertTriangle, MessageSquare, Search, CheckCircle } from "lucide-react";
 
 interface ComplaintProcessProps {
   onReturn: () => void;
@@ -111,7 +111,7 @@ export function ComplaintProcess({ onReturn }: ComplaintProcessProps) {
               <section className="space-y-6">
                 <h2>Resolution Process</h2>
                 <div className="grid gap-6">
-                  {processSteps.map((step, index) => (
+                  {processSteps.map((step) => (
                     <Card key={step.step} className="p-6 border-neutral-200 hover:shadow-lg transition-all duration-200">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0">

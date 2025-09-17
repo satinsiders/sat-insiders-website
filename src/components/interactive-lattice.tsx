@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
 import { 
   Search, 
   BookOpen, 
   Target, 
   Shield, 
   BarChart3,
-  ArrowRight,
   CheckCircle,
   AlertTriangle,
   Zap,

@@ -1,7 +1,6 @@
 import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { AlertTriangle, Clock, Target, Heart, DollarSign } from "lucide-react";
+import { AlertTriangle, Clock, Target, DollarSign } from "lucide-react";
 
 export function RefusalGates() {
   const refusalReasons = [

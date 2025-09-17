@@ -1,4 +1,4 @@
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, Clock } from "lucide-react";
 
 interface FooterProps {
   onNavigateToPrivacy: () => void;

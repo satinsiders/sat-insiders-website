@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
-import { CheckCircle, MessageCircle, BarChart3, Calendar, Shield, Clock } from "lucide-react";
+import { MessageCircle, Calendar, Shield, Clock } from "lucide-react";
 
 export function ParentCommunication() {
   const communicationFeatures = [

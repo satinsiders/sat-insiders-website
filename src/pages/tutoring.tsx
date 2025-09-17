@@ -8,7 +8,6 @@ import { GovernanceSection } from "../components/governance-section";
 import { PricingSection } from "../components/pricing-section";
 import { OnRampSection } from "../components/on-ramp-section";
 import { RefusalGates } from "../components/refusal-gates";
-import { CognitiveTaper } from "../components/cognitive-taper";
 import { WhoThisIsFor } from "../components/who-this-is-for";
 import { ParentCommunication } from "../components/parent-communication";
 import { FAQSection } from "../components/faq-section";
