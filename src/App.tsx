@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { MainHeader } from "./components/main-header";
 import { MainFooter } from "./components/main-footer";
 import { FitCheck } from "./components/fit-check";
@@ -30,8 +30,28 @@ const personaMap: Partial<Record<string, PersonaKey>> = {
   artist: 'artist',
 };
 
+function canonicalizeUrl(pathname: string, search: string): { pathname: string; search: string } {
+  // If audience is present at root, canonicalize to tutoring path
+  if (pathname === '/' && search.toLowerCase().includes('audience=')) {
+    const params = new URLSearchParams(search);
+    let raw = (params.get('audience') || '').toLowerCase().trim();
+    if (!raw) {
+      for (const [k, v] of params.entries()) {
+        if (k.toLowerCase() === 'audience') {
+          raw = (v || '').toLowerCase().trim();
+          break;
+        }
+      }
+    }
+    const qs = raw ? `?audience=${encodeURIComponent(raw)}` : '';
+    return { pathname: '/tutoring', search: qs };
+  }
+  return { pathname, search };
+}
+
 function getPageFromLocation(): PageKey {
-  const { pathname, search } = window.location;
+  const { pathname: rawPath, search: rawSearch } = window.location;
+  const { pathname, search } = canonicalizeUrl(rawPath, rawSearch);
   // Tutoring routes
   if (pathname === '/tutoring' || pathname.startsWith('/tutoring/')) {
     const params = new URLSearchParams(search);
@@ -52,6 +72,8 @@ function getPageFromLocation(): PageKey {
   if (pathname === '/summit' || pathname.startsWith('/summit/')) {
     return 'program';
   }
+  // Fit check
+  if (pathname === '/fit-check') return 'fit-check';
   // Legal/info routes
   if (pathname === '/privacy') return 'privacy';
   if (pathname === '/terms') return 'terms';
@@ -60,56 +82,63 @@ function getPageFromLocation(): PageKey {
   return 'home';
 }
 
-function navigate(path: string, page: PageKey) {
-  if (typeof window !== 'undefined') {
-    const cur = window.location.pathname + window.location.search + window.location.hash;
-    if (cur !== path) {
-      window.history.pushState({}, '', path);
-    }
+// Simple navigation + event dispatch so subscribers update synchronously
+function dispatchRouteChange() {
+  window.dispatchEvent(new Event('router:navigate'));
+}
+
+export function navigate(path: string) {
+  const cur = window.location.pathname + window.location.search + window.location.hash;
+  if (cur !== path) {
+    window.history.pushState({}, '', path);
+    dispatchRouteChange();
   }
-  return page;
+}
+
+// Subscribe to location changes
+function subscribe(callback: () => void) {
+  const onPop = () => callback();
+  const onNav = () => callback();
+  window.addEventListener('popstate', onPop);
+  window.addEventListener('router:navigate', onNav);
+  return () => {
+    window.removeEventListener('popstate', onPop);
+    window.removeEventListener('router:navigate', onNav);
+  };
+}
+
+function useRoute(): PageKey {
+  return useSyncExternalStore(
+    subscribe,
+    getPageFromLocation,
+    () => 'home'
+  );
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageKey>(getPageFromLocation());
+  const currentPage = useRoute();
   const [fitCheckSource, setFitCheckSource] = useState<'tutoring' | 'program'>('tutoring'); // Track fit check source
 
   const goToFitCheck = (source: 'tutoring' | 'program' = 'tutoring') => {
     setFitCheckSource(source);
-    setCurrentPage('fit-check');
+    navigate('/fit-check');
   };
-  const goToHome = () => setCurrentPage(navigate('/', 'home'));
-  const goToTutoring = () => setCurrentPage(navigate('/tutoring', 'tutoring'));
-  const goToProgram = () => setCurrentPage(navigate('/summit', 'program'));
-  const goToPrivacy = () => setCurrentPage(navigate('/privacy', 'privacy'));
-  const goToTerms = () => setCurrentPage(navigate('/terms', 'terms'));
-  const goToStudentRights = () => setCurrentPage(navigate('/student-rights', 'student-rights'));
-  const goToComplaints = () => setCurrentPage(navigate('/complaints', 'complaints'));
+  const goToHome = () => navigate('/');
+  const goToTutoring = () => navigate('/tutoring');
+  const goToProgram = () => navigate('/summit');
+  const goToPrivacy = () => navigate('/privacy');
+  const goToTerms = () => navigate('/terms');
+  const goToStudentRights = () => navigate('/student-rights');
+  const goToComplaints = () => navigate('/complaints');
 
   useEffect(() => {
-    const onPop = () => setCurrentPage(getPageFromLocation());
-    window.addEventListener('popstate', onPop);
-    // Sync once on mount as well
-    setCurrentPage(getPageFromLocation());
-    // If audience is present at root (/?audience=...), normalize to /tutoring?audience=...
+    // Normalize URL on mount (no state set here; useRoute will re-evaluate)
     const { pathname, search } = window.location;
-    if (pathname === '/' && search.toLowerCase().includes('audience=')) {
-      const params = new URLSearchParams(search);
-      let raw = (params.get('audience') || '').toLowerCase().trim();
-      if (!raw) {
-        for (const [k, v] of params.entries()) {
-          if (k.toLowerCase() === 'audience') {
-            raw = (v || '').toLowerCase().trim();
-            break;
-          }
-        }
-      }
-      const persona = raw ? personaMap[raw] : undefined;
-      const target = `/tutoring${raw ? `?audience=${encodeURIComponent(raw)}` : ''}`;
-      const page: PageKey = persona ? (`tutoring-${persona}` as PageKey) : 'tutoring';
-      setCurrentPage(navigate(target, page));
+    const { pathname: nextPath, search: nextSearch } = canonicalizeUrl(pathname, search);
+    if (pathname !== nextPath || search !== nextSearch) {
+      window.history.replaceState({}, '', `${nextPath}${nextSearch}`);
+      dispatchRouteChange();
     }
-    return () => window.removeEventListener('popstate', onPop);
   }, []);
 
   if (currentPage === 'tutoring') {
