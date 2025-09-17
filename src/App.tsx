@@ -35,7 +35,15 @@ function getPageFromLocation(): PageKey {
   // Tutoring routes
   if (pathname === '/tutoring' || pathname.startsWith('/tutoring/')) {
     const params = new URLSearchParams(search);
-    const raw = (params.get('audience') || '').toLowerCase();
+    let raw = (params.get('audience') || '').toLowerCase().trim();
+    if (!raw) {
+      for (const [k, v] of params.entries()) {
+        if (k.toLowerCase() === 'audience') {
+          raw = (v || '').toLowerCase().trim();
+          break;
+        }
+      }
+    }
     const persona = raw ? personaMap[raw] : undefined;
     if (persona) return `tutoring-${persona}` as PageKey;
     return 'tutoring';
@@ -83,6 +91,24 @@ export default function App() {
     window.addEventListener('popstate', onPop);
     // Sync once on mount as well
     setCurrentPage(getPageFromLocation());
+    // If audience is present at root (/?audience=...), normalize to /tutoring?audience=...
+    const { pathname, search } = window.location;
+    if (pathname === '/' && search.toLowerCase().includes('audience=')) {
+      const params = new URLSearchParams(search);
+      let raw = (params.get('audience') || '').toLowerCase().trim();
+      if (!raw) {
+        for (const [k, v] of params.entries()) {
+          if (k.toLowerCase() === 'audience') {
+            raw = (v || '').toLowerCase().trim();
+            break;
+          }
+        }
+      }
+      const persona = raw ? personaMap[raw] : undefined;
+      const target = `/tutoring${raw ? `?audience=${encodeURIComponent(raw)}` : ''}`;
+      const page: PageKey = persona ? (`tutoring-${persona}` as PageKey) : 'tutoring';
+      setCurrentPage(navigate(target, page));
+    }
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
