@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 /*
  * Post-build helper to ensure static hosts without rewrites (e.g., Render static site)
- * can serve deep links by copying the root SPA index.html to per-route directories.
+ * can serve deep links by copying the SPA index.html to per-route directories
+ * and providing rewrite hints.
  */
 const fs = require('fs');
 const path = require('path');
 
-const distDir = path.resolve(__dirname, '..', 'dist');
+const distDir = path.resolve(__dirname, '..', 'build');
 const indexPath = path.join(distDir, 'index.html');
 
 if (!fs.existsSync(indexPath)) {
-  console.warn('[postbuild-spa] dist/index.html not found – skipping route copies.');
+  console.warn('[postbuild-spa] build/index.html not found – skipping route copies.');
   process.exit(0);
 }
 
@@ -30,7 +31,12 @@ for (const route of routes) {
   fs.copyFileSync(indexPath, path.join(dir, 'index.html'));
 }
 
-// Provide a 404 fallback page that loads the SPA
 fs.copyFileSync(indexPath, path.join(distDir, '404.html'));
+fs.writeFileSync(path.join(distDir, '_redirects'), `/* /index.html 200\n`);
+
+const staticJsonSrc = path.resolve(__dirname, '..', 'static.json');
+if (fs.existsSync(staticJsonSrc)) {
+  fs.copyFileSync(staticJsonSrc, path.join(distDir, 'static.json'));
+}
 
 console.log('[postbuild-spa] Copied index.html to route directories:', routes.join(', '));
