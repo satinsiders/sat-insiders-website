@@ -9,7 +9,7 @@ import { ComplaintProcess } from "./pages/complaint-process";
 import { TutoringPage } from "./pages/tutoring";
 import { ProgramPage } from "./pages/program";
 import { TutoringPersonaPage } from "./pages/tutoring-persona";
-import { FitCheckOptions, PersonaKey } from "./types/persona";
+import { FitCheckOptions, PersonaKey, personaCode, resolvePersona } from "./types/persona";
 
 type PersonaPageKey = `tutoring-${PersonaKey}`;
 
@@ -24,28 +24,57 @@ type PageKey =
   | "complaints"
   | PersonaPageKey;
 
-const personaMap: Partial<Record<string, PersonaKey>> = {
-  athlete: 'athlete',
-  adhd: 'adhd',
-  immigrant: 'immigrant',
-  artist: 'artist',
-};
+function extractAudience(params: URLSearchParams): string | undefined {
+  const direct = params.get('audience');
+  if (direct && direct.trim()) return direct;
+  for (const [key, value] of params.entries()) {
+    if (key.toLowerCase() === 'audience' && value && value.trim()) {
+      return value;
+    }
+  }
+  return undefined;
+}
 
 function canonicalizeUrl(pathname: string, search: string): { pathname: string; search: string } {
   // If audience is present at root, canonicalize to tutoring path
   if (pathname === '/' && search.toLowerCase().includes('audience=')) {
     const params = new URLSearchParams(search);
-    let raw = (params.get('audience') || '').toLowerCase().trim();
-    if (!raw) {
-      for (const [k, v] of params.entries()) {
-        if (k.toLowerCase() === 'audience') {
-          raw = (v || '').toLowerCase().trim();
-          break;
-        }
+    const raw = extractAudience(params);
+    const persona = resolvePersona(raw);
+    if (persona) {
+      const code = personaCode(persona);
+      if (code) {
+        params.set('audience', code);
       }
     }
-    const qs = raw ? `?audience=${encodeURIComponent(raw)}` : '';
-    return { pathname: '/tutoring', search: qs };
+    const qs = params.toString();
+    return { pathname: '/tutoring', search: qs ? `?${qs}` : '' };
+  }
+  if (pathname === '/tutoring' || pathname.startsWith('/tutoring/')) {
+    const params = new URLSearchParams(search);
+    const raw = extractAudience(params);
+    const persona = resolvePersona(raw);
+    if (persona) {
+      const code = personaCode(persona);
+      if (code && raw?.toLowerCase().trim() !== code) {
+        params.set('audience', code);
+        const qs = params.toString();
+        return { pathname, search: qs ? `?${qs}` : '' };
+      }
+    }
+  }
+  if (pathname === '/fit-check') {
+    const params = new URLSearchParams(search);
+    const raw = extractAudience(params);
+    const persona = resolvePersona(raw);
+    if (persona) {
+      const code = personaCode(persona);
+      if (code && raw?.toLowerCase().trim() !== code) {
+        params.set('audience', code);
+        const qs = params.toString();
+        return { pathname, search: qs ? `?${qs}` : '' };
+      }
+    }
   }
   return { pathname, search };
 }
@@ -56,16 +85,8 @@ function getPageFromLocation(): PageKey {
   // Tutoring routes
   if (pathname === '/tutoring' || pathname.startsWith('/tutoring/')) {
     const params = new URLSearchParams(search);
-    let raw = (params.get('audience') || '').toLowerCase().trim();
-    if (!raw) {
-      for (const [k, v] of params.entries()) {
-        if (k.toLowerCase() === 'audience') {
-          raw = (v || '').toLowerCase().trim();
-          break;
-        }
-      }
-    }
-    const persona = raw ? personaMap[raw] : undefined;
+    const raw = extractAudience(params);
+    const persona = resolvePersona(raw);
     if (persona) return `tutoring-${persona}` as PageKey;
     return 'tutoring';
   }
@@ -122,7 +143,8 @@ export default function App() {
 
   const goToFitCheck = (source: 'tutoring' | 'program' = 'tutoring', options?: FitCheckOptions) => {
     setFitCheckSource(source);
-    const search = options?.audience ? `?audience=${options.audience}` : '';
+    const code = personaCode(options?.audience);
+    const search = code ? `?audience=${code}` : '';
     navigate(`/fit-check${search}`);
   };
   const goToHome = () => navigate('/');

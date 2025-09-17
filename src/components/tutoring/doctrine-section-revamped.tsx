@@ -261,18 +261,9 @@ export function DoctrineSectionRevamped({ content }: DoctrineSectionRevampedProp
                 transition={{ delay: index * 0.3, duration: 0.8 }}
                 whileHover={{ y: -8 }}
               >
-                <div className="relative p-12 bg-gradient-to-br from-white via-white to-neutral-50/30 border border-neutral-100 shadow-xl hover:shadow-2xl hover:border-accent/20 transition-all duration-500 overflow-hidden rounded-3xl">
-                  {/* Background decoration */}
-                  <div
-                    className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${
-                      principle.accent === "accent-teal"
-                        ? "from-accent-teal/10 to-accent-teal/5"
-                        : "from-accent-violet/10 to-accent-violet/5"
-                    } rounded-full blur-3xl transition-all duration-500 group-hover:scale-150`}
-                  ></div>
-
+                <div className="relative overflow-visible">
                   {/* Number badge */}
-                  <div className="absolute -top-6 -left-6 z-10">
+                  <div className="absolute -top-6 -left-6 z-20">
                     <div
                       className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl bg-gradient-to-br ${
                         principle.accent === "accent-teal"
@@ -284,14 +275,25 @@ export function DoctrineSectionRevamped({ content }: DoctrineSectionRevampedProp
                     </div>
                   </div>
 
-                  <div className="relative pt-12 space-y-6">
-                    <div className="space-y-6">
-                      <h4 className="text-2xl font-bold" style={{ color: "var(--primary-navy)" }}>
-                        {principle.title}
-                      </h4>
-                      <p className="text-lg leading-relaxed font-medium" style={{ color: "var(--neutral-700)" }}>
-                        {principle.description}
-                      </p>
+                  <div className="relative p-12 bg-gradient-to-br from-white via-white to-neutral-50/30 border border-neutral-100 shadow-xl hover:shadow-2xl hover:border-accent/20 transition-all duration-500 overflow-hidden rounded-3xl">
+                    {/* Background decoration */}
+                    <div
+                      className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${
+                        principle.accent === "accent-teal"
+                          ? "from-accent-teal/10 to-accent-teal/5"
+                        : "from-accent-violet/10 to-accent-violet/5"
+                    } rounded-full blur-3xl transition-all duration-500 group-hover:scale-150`}
+                  ></div>
+
+                    <div className="relative pt-12 space-y-6">
+                      <div className="space-y-6">
+                        <h4 className="text-2xl font-bold" style={{ color: "var(--primary-navy)" }}>
+                          {principle.title}
+                        </h4>
+                        <p className="text-lg leading-relaxed font-medium" style={{ color: "var(--neutral-700)" }}>
+                          {principle.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

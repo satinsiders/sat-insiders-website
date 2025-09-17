@@ -7,6 +7,7 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Checkbox } from "./ui/checkbox";
+import { resolvePersona } from "../types/persona";
 import {
   ArrowLeft,
   ArrowRight,
@@ -85,7 +86,9 @@ export function FitCheck({ onReturn, source = 'tutoring' }: FitCheckProps) {
       return '';
     }
   })();
-  const audienceValue = (audienceParam || 'general').trim();
+  const trimmedAudienceParam = audienceParam.trim();
+  const resolvedAudience = resolvePersona(trimmedAudienceParam);
+  const audienceValue = resolvedAudience ?? (trimmedAudienceParam || 'general');
 
   const challenges = [
     "Time management during sections",
