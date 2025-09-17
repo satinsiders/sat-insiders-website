@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
+import { Card } from "../ui/card";
+import { Badge } from "../ui/badge";
 import { StudentDataVisualization } from "./student-data-visualization";
 import { motion } from "motion/react";
 import { BarChart3, TrendingUp, Info } from "lucide-react";

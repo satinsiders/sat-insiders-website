@@ -1,5 +1,5 @@
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
+import { Card } from "../ui/card";
+import { Badge } from "../ui/badge";
 import { Calendar, Target, TrendingUp, CheckCircle } from "lucide-react";
 
 export function SevenDaySection() {

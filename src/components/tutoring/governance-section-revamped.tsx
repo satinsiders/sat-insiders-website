@@ -1,1 +1,1 @@
-export { GovernanceSection as GovernanceSectionRevamped } from "../governance-section";
+export { GovernanceSection as GovernanceSectionRevamped } from "./governance-section";

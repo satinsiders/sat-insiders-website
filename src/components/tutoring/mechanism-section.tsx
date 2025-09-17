@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
+import { Card } from "../ui/card";
+import { Badge } from "../ui/badge";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronRight, Search, BookOpen, Target, Shield, BarChart3 } from "lucide-react";
 

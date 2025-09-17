@@ -1,1 +1,1 @@
-export { ProofSection as ProofSectionRevamped } from "../proof-section";
+export { ProofSection as ProofSectionRevamped } from "./proof-section";

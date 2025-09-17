@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card } from "./ui/card";
+import { Card } from "../ui/card";
 import { User, Users, Home, TrendingUp } from "lucide-react";
 
 export function WhoThisIsFor() {

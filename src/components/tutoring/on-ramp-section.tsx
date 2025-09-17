@@ -1,6 +1,6 @@
-import { Card } from "./ui/card";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
+import { Card } from "../ui/card";
+import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 import { CheckCircle, ArrowRight, Shield } from "lucide-react";
 
 interface OnRampSectionProps {

@@ -1,1 +1,1 @@
-export { FAQSection as FAQSectionRevamped } from "../faq-section";
+export { FAQSection as FAQSectionRevamped } from "./faq-section";

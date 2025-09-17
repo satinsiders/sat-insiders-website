@@ -1,1 +1,1 @@
-export { WhoThisIsFor as WhoThisIsForRevamped } from "../who-this-is-for";
+export { WhoThisIsFor as WhoThisIsForRevamped } from "./who-this-is-for";

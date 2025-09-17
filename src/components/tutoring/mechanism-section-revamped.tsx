@@ -1,1 +1,1 @@
-export { MechanismSection as MechanismSectionRevamped } from "../mechanism-section";
+export { MechanismSection as MechanismSectionRevamped } from "./mechanism-section";
