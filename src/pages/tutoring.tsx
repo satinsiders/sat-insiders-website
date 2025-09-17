@@ -14,10 +14,11 @@ import { FAQSection } from "../components/tutoring/faq-section";
 import { Footer } from "../components/footer";
 import { FitCheck } from "../components/fit-check";
 import { useState } from "react";
+import { FitCheckOptions } from "../types/persona";
 
 interface TutoringPageProps {
   onReturn: () => void;
-  onGoToFitCheck?: () => void;
+  onGoToFitCheck?: (options?: FitCheckOptions) => void;
 }
 
 export function TutoringPage({ onReturn, onGoToFitCheck }: TutoringPageProps) {

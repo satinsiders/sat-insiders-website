@@ -8,10 +8,11 @@ import { ApplicationProcess } from "../components/program/application-process";
 import { Footer } from "../components/footer";
 import { FitCheck } from "../components/fit-check";
 import { useState } from "react";
+import { FitCheckOptions } from "../types/persona";
 
 interface ProgramPageProps {
   onReturn: () => void;
-  onGoToFitCheck?: () => void; // Add new prop
+  onGoToFitCheck?: (options?: FitCheckOptions) => void;
 }
 
 export function ProgramPage({ onReturn, onGoToFitCheck }: ProgramPageProps) {

@@ -8,7 +8,8 @@ import { StudentRights } from "./pages/student-rights";
 import { ComplaintProcess } from "./pages/complaint-process";
 import { TutoringPage } from "./pages/tutoring";
 import { ProgramPage } from "./pages/program";
-import { PersonaKey, TutoringPersonaPage } from "./pages/tutoring-persona";
+import { TutoringPersonaPage } from "./pages/tutoring-persona";
+import { FitCheckOptions, PersonaKey } from "./types/persona";
 
 type PersonaPageKey = `tutoring-${PersonaKey}`;
 
@@ -119,9 +120,10 @@ export default function App() {
   const currentPage = useRoute();
   const [fitCheckSource, setFitCheckSource] = useState<'tutoring' | 'program'>('tutoring'); // Track fit check source
 
-  const goToFitCheck = (source: 'tutoring' | 'program' = 'tutoring') => {
+  const goToFitCheck = (source: 'tutoring' | 'program' = 'tutoring', options?: FitCheckOptions) => {
     setFitCheckSource(source);
-    navigate('/fit-check');
+    const search = options?.audience ? `?audience=${options.audience}` : '';
+    navigate(`/fit-check${search}`);
   };
   const goToHome = () => navigate('/');
   const goToTutoring = () => navigate('/tutoring');
@@ -151,7 +153,7 @@ export default function App() {
       <TutoringPersonaPage
         persona={persona}
         onReturn={goToHome}
-        onGoToFitCheck={() => goToFitCheck('tutoring')}
+        onGoToFitCheck={(opts) => goToFitCheck('tutoring', opts)}
       />
     );
   }

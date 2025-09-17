@@ -31,6 +31,7 @@ import {
   BarChart3,
   Globe,
 } from "lucide-react";
+import { FitCheckOptions, PersonaKey } from "../types/persona";
 
 type HeroContent = NonNullable<Parameters<typeof HeroRevamped>[0]["content"]>;
 type DoctrineContent = NonNullable<Parameters<typeof DoctrineSectionRevamped>[0]["content"]>;
@@ -49,8 +50,6 @@ type FAQContent = Parameters<typeof FAQSection>[0] extends { content?: infer C }
 type SevenDayContent = Parameters<typeof SevenDaySection>[0] extends { content?: infer C }
   ? NonNullable<C>
   : never;
-
-export type PersonaKey = "athlete" | "adhd" | "immigrant" | "artist";
 
 interface PersonaConfig {
   label: string;
@@ -1230,7 +1229,7 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
 interface TutoringPersonaPageProps {
   persona: PersonaKey;
   onReturn: () => void;
-  onGoToFitCheck?: () => void;
+  onGoToFitCheck?: (options?: FitCheckOptions) => void;
 }
 
 export function TutoringPersonaPage({ persona, onReturn, onGoToFitCheck }: TutoringPersonaPageProps) {
@@ -1239,10 +1238,10 @@ export function TutoringPersonaPage({ persona, onReturn, onGoToFitCheck }: Tutor
 
   const goToFitCheck = () => {
     if (onGoToFitCheck) {
-      onGoToFitCheck();
-    } else {
-      setShowFitCheck(true);
+      onGoToFitCheck({ audience: persona });
+      return;
     }
+    setShowFitCheck(true);
   };
   const returnFromFitCheck = () => setShowFitCheck(false);
 
