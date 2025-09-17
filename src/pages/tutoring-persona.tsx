@@ -67,20 +67,20 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
   athlete: {
     label: "Boarding-school athlete",
     hero: {
-      badge: "보딩스쿨 운동선수 전용 트랙",
+      badge: "Boarding-school athlete track",
       headline: {
         pre: "Tournament weeks won't derail ",
         highlight: "your athlete's SAT gains",
         post: "",
       },
       subheadline:
-        "원정과 야간 연습이 반복되는 일정을 데이터화해 회복 가능한 45분 슬롯 안에 고득점 훈련을 꽉 채웁니다.",
+        "We translate travel and late practices into a data-driven plan that packs high-yield prep into recoverable 45-minute slots.",
       stats: [
-        { value: "45분 × 2", label: "Away-week coaching bursts" },
+        { value: "45m × 2", label: "Away-week coaching bursts" },
         { value: "92%", label: "Assignments finished on travel weeks" },
       ],
-      ctaLabel: "여행 일정 공유하고 맞춤 플랜 받아보기",
-      ctaHelper: "3분 Fit Check • 코치 일정만 알려주세요",
+      ctaLabel: "Share travel schedule for a custom plan",
+      ctaHelper: "3-minute Fit Check • Share coach schedule",
       progressTitle: "Travel Week Monitoring",
       progressBadge: "Schedule Proof",
       floatingLabel: "Coach + Manager pod on call",
@@ -206,55 +206,55 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
       badge: "For Parents & Coaches",
       title: "Stay in lockstep with the season",
       description:
-        "우리는 부모, 코치, 학생이 같은 경기력을 향해 움직이도록 주간 체계를 제공합니다.",
+        "We keep parents, coaches, and students aligned with a simple weekly rhythm.",
       features: [
         {
           icon: <Calendar className="w-6 h-6 text-accent" />,
           title: "Sunday logistics sync",
-          description: "15분 화상으로 주간 원정 일정, 피로 위험, 학습 슬롯을 확정합니다.",
+          description: "15-minute video to confirm travel, fatigue risks, and study slots.",
         },
         {
           icon: <MessageCircle className="w-6 h-6 text-accent" />,
           title: "Coach-friendly snapshot",
           description:
-            "Forward-ready 요약본으로 감독, 기숙사 사감과도 동일한 정보를 공유할 수 있습니다.",
+            "Forwardable summary so coaches and dorm staff see the same plan.",
         },
         {
           icon: <Shield className="w-6 h-6 text-accent" />,
           title: "Travel alert system",
-          description: "경기 연장·비행 지연이 생기면 30분 내 대체 과제와 시간표를 재배치합니다.",
+          description: "If games run long or flights delay, we rebalance tasks within 30 minutes.",
         },
       ],
       timeItems: [
         {
           phase: "Sunday plan call",
           time: "15 min",
-          description: "Roster 업데이트 + 이동 경로 + 학습 슬롯 확정",
+          description: "Roster update + routes + study slots confirmed",
         },
         {
           phase: "Live check-ins",
           time: "2×5 min",
-          description: "연습 후 음성 노트로 에너지 상태 확인",
+          description: "Voice notes after practice to check energy",
         },
         {
           phase: "Guided practice",
           time: "30-35 min",
-          description: "피로도에 맞춘 모바일 학습 세트",
+          description: "Mobile-friendly assignments matched to fatigue",
         },
         {
           phase: "Parent digest",
           time: "10 min",
-          description: "주간 비디오 요약 + 위험 신호 알림",
+          description: "Weekly video summary + risk signals",
         },
       ],
       timeHeadline: "Weekly time investment",
-      timeSubtitle: "선수의 에너지 곡선을 지키는 루틴",
-      totalCommitmentTitle: "Total weekly load: ~1 hour for you, 두 번의 마이크로 세션",
-      totalCommitmentSubtitle: "토너먼트, 더블헤더, 기숙사 통금까지 모두 반영합니다.",
+      timeSubtitle: "A routine that protects the athlete’s energy curve",
+      totalCommitmentTitle: "Total weekly load: ~1 hour for you, two micro sessions",
+      totalCommitmentSubtitle: "Covers tournaments, doubleheaders, and dorm curfews.",
     },
     who: {
-      sectionTitle: "이런 가족에게 맞습니다",
-      sectionDescription: "경기력과 점수를 동시에 지키려는 부모님, 코치, 학생을 위한 전용 트랙입니다.",
+      sectionTitle: "Who this is for",
+      sectionDescription: "A track for families, coaches, and students who want performance and scores at the same time.",
       identities: [
         {
           id: "athlete",
@@ -262,7 +262,7 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
           title: "Boarding-school athlete",
           statement: '"I need a coach who respects my season and my sleep."',
           details:
-            "우리는 연습·원정·회복 루틴을 먼저 분석하고, 그 안에 점프 가능한 학습 스크립트를 심습니다.",
+            "We analyze practice, travel, and recovery first and embed jump-in study scripts inside it.",
         },
         {
           id: "parent",
@@ -270,62 +270,62 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
           title: "Parent-coach ally",
           statement: '"I want visibility without nagging from 3,000 miles away."',
           details:
-            "Forward 가능한 요약본과 알림으로 코치·부모·기숙사 스태프가 같은 정보를 공유합니다.",
+            "Forwardable summaries and alerts keep coaches, parents, and dorm staff aligned.",
         },
         {
           id: "dorm",
           icon: <Home className="w-5 h-5" />,
           title: "Dorm support system",
           statement: '"Give me clear instructions so I can protect study hall."',
-          details: "도미토리 직원에게 전달 가능한 체크리스트와 스케줄을 제공합니다.",
+          details: "Clear checklists and schedules dorm staff can act on.",
         },
         {
           id: "scholarship",
           icon: <Sparkles className="w-5 h-5" />,
           title: "Scholarship seeker",
           statement: '"I refuse to sacrifice offers because of logistics."',
-          details: "우리는 스포츠 장학생이 요구하는 GPA·SAT 기준을 실시간으로 모니터링합니다.",
+          details: "We monitor GPA and SAT thresholds tied to scholarships.",
         },
       ],
       calloutTitle: "Why parents choose this lane",
       calloutBody:
-        "경기력과 학업을 동시에 관리하는 전담 매니저팀이 배치되어, 원정주간에도 진행률이 떨어지지 않습니다.",
+        "A dedicated manager team keeps momentum during travel weeks so progress doesn’t dip.",
     },
     faq: {
       sectionTitle: "Athlete family questions",
-      description: "스케줄 관리와 NCAA 규정을 모두 고려했습니다.",
+      description: "Designed around scheduling and NCAA considerations.",
       items: [
         {
-          question: "비행과 시차가 잦은데도 관리가 되나요?",
+          question: "Can you manage frequent flights and jet lag?",
           answer:
-            "Fit Check 단계에서 시즌 일정을 받아 주간·일별 블록을 설계합니다. 시차가 생기면 매니저가 30분 내 새 과제와 라이브/비동기 옵션을 제안합니다.",
+            "We collect the season schedule in Fit Check and design weekly/daily blocks. If time zones change, the manager proposes new tasks and async/live options within 30 minutes.",
         },
         {
-          question: "저녁 훈련 후 너무 피곤하면요?",
+          question: "What if evening practices leave us exhausted?",
           answer:
-            "고강도 날에는 15분 결합형 과제를 배치하고, 회복일에 긴 세션을 배치합니다. 선수의 HRV·수면 기록을 참고해 강도를 조절합니다.",
+            "On high‑intensity days we assign 15‑minute blended tasks and shift longer sessions to recovery days, adjusting intensity based on sleep and HRV when available.",
         },
         {
-          question: "학교 튜터나 코치와 어떻게 협업하나요?",
+          question: "How do you coordinate with school tutors or coaches?",
           answer:
-            "부모님이 허락하면 요약 리포트를 코치·기숙사 담당자에게 공유해 중복 없이 지원합니다.",
+            "With permission, we share concise summaries to coaches and dorm staff to avoid duplication.",
         },
         {
-          question: "NCAA 아마추어 규정과 충돌하지 않나요?",
+          question: "Any conflict with NCAA amateurism rules?",
           answer:
-            "학습 서비스로 분류되어 NCAA 규정을 준수합니다. 필요 시 compliance officer와 바로 소통합니다.",
+            "We operate as an educational service and comply with NCAA rules; we’ll coordinate with compliance officers when needed.",
         },
         {
-          question: "버스나 호텔에서도 수업이 가능한가요?",
+          question: "Can we work from buses and hotels?",
           answer:
-            "Wi-Fi가 불안정한 상황을 대비해 다운로드 가능한 자료와 음성 해설을 제공합니다.",
+            "We provide downloadable materials and audio guides for low‑connectivity situations.",
         },
       ],
-      footerText: "다음 원정 날짜를 알려주시면 그 주간 플랜을 먼저 설계해드립니다.",
+      footerText: "Share your next travel date and we’ll pre‑build that week’s plan.",
     },
     sevenDay: {
       sectionTitle: "First 7 days: travel-proof launch",
-      sectionSubtitle: "Day 7에는 여행과 연습 사이에서 작동하는 학습 루틴이 완성됩니다.",
+      sectionSubtitle: "By Day 7, a routine that works between travel and practice is in place.",
       focusHeading: "What we align",
       focusGroups: [
         {
@@ -347,36 +347,36 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
       ],
       experienceHeading: "What you'll notice",
       experienceItems: [
-        "Practice planner에 SAT 미션이 자연스럽게 포함",
-        "원정 중에도 진도 차질 없이 완료",
-        "코치·부모·학생이 같은 데이터를 본다",
+        "SAT tasks naturally embedded in the practice planner",
+        "Travel weeks finish on time without backlog",
+        "Coaches, parents, and students view the same data",
       ],
       timelineTitle: "7-day rollout",
       timeline: [
         {
           day: "Day 1",
           activity: "Season intake",
-          description: "Fit Check + 원정/연습 일정 수집",
+          description: "Fit Check + collect travel/practice schedule",
         },
         {
           day: "Day 2",
           activity: "Diagnostics",
-          description: "SAT 베이스라인 + 결정 패턴 분석",
+          description: "SAT baseline + decision pattern analysis",
         },
         {
           day: "Day 3-4",
           activity: "Micro script build",
-          description: "45분/15분 과제와 대체 옵션 설계",
+          description: "Build 45/15‑minute tasks + fallbacks",
         },
         {
           day: "Day 5",
           activity: "Travel rehearsal",
-          description: "버스/호텔용 의사결정 드릴 실행",
+          description: "On‑bus/hotel decision drills",
         },
         {
           day: "Day 6-7",
           activity: "Manager sync",
-          description: "코치·부모 공유본 확정 + 첫 리포트 발송",
+          description: "Finalize parent/coach summary + first report",
         },
       ],
       timelineOutcome: "Outcome: 100% of planned reps delivered despite the sports schedule",
@@ -385,20 +385,20 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
   adhd: {
     label: "ADHD-focused learner",
     hero: {
-      badge: "ADHD 맞춤 SAT 시스템",
+      badge: "ADHD-tailored SAT system",
       headline: {
         pre: "Structure the score your ",
         highlight: "neurodivergent learner",
         post: " can own",
       },
       subheadline:
-        "짧은 스프린트, 시각 피드백, 책임 코칭으로 ADHD 학생의 집중 지속 시간을 설계합니다.",
+        "Short sprints, visual feedback, and accountable coaching that respect attention span.",
       stats: [
-        { value: "32분", label: "Live body-doubling sessions" },
+        { value: "32m", label: "Live body-doubling sessions" },
         { value: "3x/week", label: "Momentum nudges & wins" },
       ],
-      ctaLabel: "ADHD 전용 Fit Check 시작하기",
-      ctaHelper: "3분 • 약물/스케줄 메모만 준비하세요",
+      ctaLabel: "Start the ADHD Fit Check",
+      ctaHelper: "3 minutes • Bring meds/schedule notes",
       progressTitle: "Focus & Regulation Dashboard",
       progressBadge: "Momentum Data",
       floatingLabel: "Coach + Manager watching signal loss",
@@ -411,17 +411,17 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
         post: "",
       },
       description:
-        "의지나 훈육이 아니라 구조가 성과를 만듭니다. 우리는 수치로 보이는 승리 루프를 만듭니다.",
+        "Structure, not willpower, drives results. We build a visible win loop.",
       beliefs: [
         {
           title: "Our approach",
           belief:
-            "Motivation follows measurable wins. 첫 48시간 안에 성공 경험을 설계해 도파민을 확보합니다.",
+            "Motivation follows measurable wins. We engineer a success experience in the first 48 hours.",
           color: "accent",
         },
         {
           title: "What doesn't work",
-          belief: '"Sit still and try harder"식 과제 폭탄이나 죄책감 유발 과제는 즉시 배제합니다.',
+          belief: '"Sit still and try harder" packets or guilt-driven assignments are excluded.',
           color: "critical",
         },
         {
@@ -437,20 +437,20 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
         post: "",
       },
       principlesDescription:
-        "ADHD 학생의 성공은 집중이 아니라 회복 가능한 구조와 즉각 피드백에서 나옵니다.",
+        "Success comes from recoverable structure and immediate feedback, not raw focus.",
       principles: [
         {
           number: "01",
           title: "Momentum over willpower",
           description:
-            "모든 과제를 25-35분 스프린트로 설계하고, 완수 즉시 보상 피드백을 제공합니다.",
+            "We design every task as a 25–35 minute sprint and deliver immediate reward feedback when finished.",
           accent: "accent-teal",
         },
         {
           number: "02",
           title: "Regulate before rigor",
           description:
-            "약물, 수면, 감정 상태를 먼저 체크하고 그에 맞춰 난이도를 조정합니다.",
+            "We check meds, sleep, and mood first and adjust difficulty accordingly.",
           accent: "accent-violet",
         },
       ],
@@ -521,37 +521,37 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
     },
     parentCommunication: {
       badge: "For parents managing ADHD",
-      title: "정보는 간결하게, 지원은 즉각적으로",
+      title: "Concise information, immediate support",
       description:
-        "우리는 학생의 실행 기능을 대신 관리하고, 부모님께는 필요한 핵심만 전달합니다.",
+        "We manage executive function and deliver only the essentials to parents.",
       features: [
         {
           icon: <MessageCircle className="w-6 h-6 text-accent" />,
           title: "Daily momentum texts",
-          description: "두 줄 요약과 다음 승리 포인트를 전송해 잔소리 없이 응원할 수 있게 합니다.",
+          description: "Two-line summary and next win point so you can cheer without nagging.",
         },
         {
           icon: <Shield className="w-6 h-6 text-accent" />,
           title: "Executive function dashboard",
           description:
-            "미완료 항목, 집중도 로그, 감정 상태를 색상으로 보여주는 투명한 보드 제공.",
+            "Transparent board with color‑coded incompletes, focus logs, and mood.",
         },
         {
           icon: <Calendar className="w-6 h-6 text-accent" />,
           title: "Focus rescue plan",
-          description: "약물, 수면, 환경 변화에 따라 즉시 적용 가능한 대체 플랜을 제공합니다.",
+          description: "Alternative plan ready when meds, sleep, or environment change.",
         },
       ],
       timeItems: [
         {
           phase: "Kickoff intake",
           time: "35 min",
-          description: "학생·부모 인터뷰 + 집중 트리거 수집",
+          description: "Student + parent interview; collect focus triggers",
         },
         {
           phase: "Live coaching",
           time: "2×32 min",
-          description: "바디더블링 세션으로 주요 전략 훈련",
+          description: "Body-doubling sessions for core strategies",
         },
         {
           phase: "Guided solo sprint",
@@ -561,160 +561,160 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
         {
           phase: "Parent loop",
           time: "8 min",
-          description: "비디오 요약과 다음 주 위험 신호",
+          description: "Video recap and next-week signals",
         },
       ],
       timeHeadline: "Weekly time investment",
-      timeSubtitle: "집중 유지 장치에 투자하는 2.5시간",
-      totalCommitmentTitle: "Total weekly load: 약 2.5시간 집중",
-      totalCommitmentSubtitle: "학생의 에너지와 약물 사이클을 우선시합니다.",
+      timeSubtitle: "About 2.5 hours invested in protecting focus",
+      totalCommitmentTitle: "Total weekly load: ~2.5 hours of focused work",
+      totalCommitmentSubtitle: "We prioritize energy and medication cycles.",
     },
     who: {
-      sectionTitle: "누구를 위한 프로그램인가요?",
-      sectionDescription: "ADHD를 약점이 아닌 전략으로 바꾸고 싶은 가족",
+      sectionTitle: "Who is this for?",
+      sectionDescription: "Families who want to turn ADHD into a strategy, not a liability",
       identities: [
         {
           id: "student",
           icon: <Brain className="w-5 h-5" />,
           title: "ADHD-honest student",
-          statement: '"I need a coach who gets my brain and won't shame me."',
-          details: "집중이 흔들릴 때 즉시 도와줄 구조와 언어를 만듭니다.",
+          statement: '"I need a coach who gets my brain and won\'t shame me."',
+          details: "We build structure and language that helps the moment focus slips.",
         },
         {
           id: "parent",
           icon: <Users className="w-5 h-5" />,
           title: "Parent seeking proof",
           statement: '"I want evidence of progress without becoming the enforcer."',
-          details: "데이터 기반 리포트로 부모님의 감시 부담을 덜어드립니다.",
+          details: "Data‑driven reports reduce the monitoring burden.",
         },
         {
           id: "family",
           icon: <Home className="w-5 h-5" />,
           title: "Family system",
           statement: '"We want evenings back, not another fight."',
-          details: "과제 완료 여부로 싸우지 않도록 완결된 루틴과 보상을 제공합니다.",
+          details: "Closed‑loop routines and rewards prevent homework battles.",
         },
         {
           id: "creative",
           icon: <Sparkles className="w-5 h-5" />,
           title: "High-potential creative",
           statement: '"Give me structure and I\'ll bring the spark."',
-          details: "창의성을 죽이지 않는 범위에서 구조화된 전략을 제공합니다.",
+          details: "Structure that preserves creativity while producing dependable output.",
         },
       ],
       calloutTitle: "We coach the nervous system first",
       calloutBody:
-        "집중력 자체보다 신경계 안정과 성공 경험을 먼저 만들기 때문에, 학생이 스스로 의욕을 회복합니다.",
+        "Because we stabilize the nervous system and create early wins, students regain internal motivation.",
     },
     faq: {
-      sectionTitle: "ADHD 가족이 가장 궁금해하는 질문",
+      sectionTitle: "ADHD family FAQ",
       items: [
         {
-          question: "약물 복용 시간이 자주 바뀌어도 괜찮나요?",
+          question: "What if medication times change frequently?",
           answer:
-            "주간 체크인에서 약물/수면 변화를 공유받고, 세션 시간과 난이도를 즉시 재조정합니다.",
+            "We capture changes in weekly check‑ins and adjust session timing and difficulty immediately.",
         },
         {
-          question: "수업을 자꾸 잊어버리면 어떻게 하나요?",
+          question: "What if we keep forgetting sessions?",
           answer:
-            "세션 1시간 전 SMS/앱 알림과 코치의 개인 영상으로 리마인드합니다. 두 번 연속 놓치면 맞춤 플랜을 다시 짭니다.",
+            "We send SMS/app reminders an hour before plus a coach nudge; if two misses in a row we rebuild the plan.",
         },
         {
-          question: "바디더블링이나 코워킹 공간이 있나요?",
+          question: "Do you offer body‑doubling/co‑working?",
           answer:
-            "있습니다. 학생이 요청하면 카메라를 켜고 함께 문제를 풀며 실시간 피드백을 줍니다.",
+            "Yes—camera‑on co‑working with immediate feedback is available.",
         },
         {
-          question: "IEP, 상담사와도 협업하나요?",
+          question: "Do you collaborate with IEPs or therapists?",
           answer:
-            "보호자 동의 시 IEP 목표와 치료 계획을 반영해 같은 언어로 코칭합니다.",
+            "With consent we align to IEP goals and therapy plans and use a shared language.",
         },
         {
-          question: "집중이 무너질 때 부모가 해야 할 일은?",
+          question: "What should parents do when focus collapses?",
           answer:
-            "우리가 보내는 3단계 리커버리 가이드를 따라 주세요. 부모님 역할은 응원과 환경 조정뿐입니다.",
+            "Follow our 3‑step recovery guide. Parents focus on encouragement and environment, not enforcement.",
         },
       ],
-      footerText: "Fit Check에서 현재 루틴을 공유하면 맞춤 집중 전략을 설계해드립니다.",
+      footerText: "Share your current routine in the Fit Check and we\'ll design a focus strategy.",
     },
     sevenDay: {
       sectionTitle: "First 7 days: momentum installation",
-      sectionSubtitle: "일주일 안에 세 번의 성공 경험을 설계합니다.",
+      sectionSubtitle: "We design three success experiences in the first week.",
       focusHeading: "What we wire in",
       focusGroups: [
         {
           heading: "Baseline signals",
           items: [
-            "• 약물/수면/기분 로그",
-            "• 집중 온·오프 트리거",
-            "• 학습 환경 조정 체크리스트",
+            "• Meds/sleep/mood log",
+            "• Focus on/off triggers",
+            "• Environment adjustment checklist",
           ],
         },
         {
           heading: "Systems installed",
           items: [
-            "• 32분 스프린트 타이머",
-            "• 포커스 레스큐 프로토콜",
-            "• 도파민 보상 보드",
+            "• 32-minute sprint timer",
+            "• Focus rescue protocol",
+            "• Dopamine rewards board",
           ],
         },
       ],
       experienceHeading: "What you'll notice",
       experienceItems: [
-        "학생이 먼저 세션을 요청",
-        "완료된 과제가 즉시 시각화",
-        "저녁 갈등이 눈에 띄게 줄어듦",
+        "Student initiates sessions",
+        "Completed work is visualized instantly",
+        "Evening conflicts drop noticeably",
       ],
       timelineTitle: "7-day rollout",
       timeline: [
-        { day: "Day 1", activity: "Intake", description: "집중 트리거 + 진단" },
-        { day: "Day 2", activity: "First sprint", description: "32분 세션으로 첫 승리" },
-        { day: "Day 3-4", activity: "Gamified homework", description: "짧은 과제로 보상 루프 강화" },
-        { day: "Day 5", activity: "Body-doubling lab", description: "코치와 함께 대형 문항 해결" },
-        { day: "Day 6-7", activity: "Momentum recap", description: "주간 리포트 + 다음 주 계획" },
+        { day: "Day 1", activity: "Intake", description: "Focus triggers + diagnostics" },
+        { day: "Day 2", activity: "First sprint", description: "First 32-minute sprint win" },
+        { day: "Day 3-4", activity: "Gamified homework", description: "Short assignments to reinforce reward loop" },
+        { day: "Day 5", activity: "Body-doubling lab", description: "Coached co‑working on hard items" },
+        { day: "Day 6-7", activity: "Momentum recap", description: "Weekly report + next‑week plan" },
       ],
-      timelineOutcome: "Outcome: 학생이 3회 연속 완주 + 첫 집중 로그 확보",
+      timelineOutcome: "Outcome: 3 consecutive completions + first focus log",
     },
   },
   immigrant: {
     label: "Bilingual/immigrant family",
     hero: {
-      badge: "이민 가정 • Bilingual SAT 전략",
+      badge: "Immigrant families • Bilingual SAT strategy",
       headline: {
         pre: "Bridge the SAT gap for ",
         highlight: "bilingual thinkers",
         post: "",
       },
       subheadline:
-        "한국어와 영어를 오가며 의미를 먼저 잡고, 배경지식을 확장해 독해 장벽을 허무는 커리큘럼입니다.",
+        "We capture meaning first in both languages, then build background knowledge to remove reading barriers.",
       stats: [
         { value: "2×", label: "Faster passage breakdown with dual notes" },
         { value: "120+", label: "Background context capsules" },
       ],
-      ctaLabel: "이중언어 Fit Check 시작하기",
-      ctaHelper: "3분 • 지금 어려운 지문만 공유하세요",
+      ctaLabel: "Start the bilingual Fit Check",
+      ctaHelper: "3 minutes • Share the passages that feel hardest",
       progressTitle: "Reading Confidence Tracker",
       progressBadge: "Meaning First",
       floatingLabel: "Bilingual coach + cultural analyst",
     },
     doctrine: {
-      badge: "언어 전환 철학",
+      badge: "Language-switching doctrine",
       headline: {
         pre: "We convert language gaps into ",
         highlight: "strategic clarity",
         post: "",
       },
       description:
-        "언어 장벽은 실력 부족이 아니라 번역 지연입니다. 의미를 먼저 이해하게 만들면 성적은 자연스럽게 올라갑니다.",
+        "Language barriers are translation lag, not lack of ability. When meaning comes first, scores follow.",
       beliefs: [
         {
           title: "Our approach",
-          belief: "핵심 문장을 한국어/영어로 모두 설명하고, 뇌가 내용을 잡을 시간을 줍니다.",
+          belief: "We explain key sentences in plain language in both directions and give the brain time to lock meaning.",
           color: "accent",
         },
         {
           title: "What doesn't work",
-          belief: '"그냥 더 많이 읽어"라는 말은 배경지식과 맥락이 없는 학생에게는 공허합니다.',
+          belief: '"Just read more" without context is empty advice.',
           color: "critical",
         },
         {
@@ -730,18 +730,18 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
         post: "",
       },
       principlesDescription:
-        "의미를 먼저 잡고, 문화적 맥락과 어휘를 그 위에 쌓습니다.",
+        "Grab meaning first, then layer cultural context and vocabulary on top.",
       principles: [
         {
           number: "01",
           title: "Meaning before mechanics",
-          description: "문법·어휘보다 글의 의도와 구조부터 번역합니다.",
+          description: "Translate author intent and structure before grammar or vocabulary.",
           accent: "accent-teal",
         },
         {
           number: "02",
           title: "Context creates confidence",
-          description: "미국 역사·과학 배경을 짧은 캡슐로 보충해 낯선 지문을 익숙하게 만듭니다.",
+          description: "Short U.S. history/science capsules make unfamiliar passages feel familiar.",
           accent: "accent-violet",
         },
       ],
@@ -767,7 +767,7 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
           title: "Dual-language scaffolds",
           description: "We co-create notes that translate structure, not just words.",
           details: [
-            "Sentence frames and transition cues in 두 언어",
+            "Sentence frames and transition cues in both languages",
             "Question stem decoding with bilingual glossaries",
             "Annotation templates for meaning + evidence",
           ],
@@ -779,7 +779,7 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
           description: "We fill background knowledge with short cultural explainers.",
           details: [
             "US civics, literature, science capsule videos",
-            "비교 문화 질문으로 이해 확장",
+            "Cross‑cultural prompts to expand understanding",
             "Confidence prompts to apply context on new passages",
           ],
         },
@@ -808,165 +808,165 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
       ],
       closingTitle: "We prove that language is not the ceiling",
       closingDescription:
-        "가족 모두가 이해할 수 있는 리포트와 실력 향상 데이터를 제공해, 학생이 자신감을 회복하도록 돕습니다.",
+        "We provide family‑readable reports and progress data so students regain confidence.",
     },
     parentCommunication: {
-      badge: "For 부모님",
-      title: "언어 장벽을 함께 넘어갑니다",
+      badge: "For Parents",
+      title: "We cross the language barrier together",
       description:
-        "모든 리포트와 피드백을 한국어/영어로 제공해 부모님도 전체 과정을 이해하실 수 있습니다.",
+        "All reports and feedback are available in both languages so parents can follow every step.",
       features: [
         {
           icon: <MessageCircle className="w-6 h-6 text-accent" />,
           title: "Bilingual weekly digest",
-          description: "주요 성과와 다음 주 목표를 두 언어로 요약해 드립니다.",
+          description: "We summarize key wins and next‑week goals in both languages.",
         },
         {
           icon: <Calendar className="w-6 h-6 text-accent" />,
           title: "Context homework plan",
-          description: "가정에서 함께 볼 수 있는 배경지식 영상과 토론 질문을 제공합니다.",
+          description: "Short background videos and discussion prompts for at‑home learning.",
         },
         {
           icon: <Shield className="w-6 h-6 text-accent" />,
           title: "Vocabulary audio packs",
-          description: "발음·의미를 함께 익힐 수 있는 MP3 파일과 스크립트를 드립니다.",
+          description: "MP3s and scripts that pair pronunciation with meaning.",
         },
       ],
       timeItems: [
-        { phase: "Kickoff 인터뷰", time: "30 min", description: "학생·부모 이중 언어 상담" },
-        { phase: "Live reading lab", time: "2×45 min", description: "의미 중심 독해 훈련" },
-        { phase: "Context capsules", time: "20 min", description: "배경지식 영상 시청 및 요약" },
-        { phase: "Parent recap", time: "10 min", description: "주간 리포트 + 홈 활동 안내" },
+        { phase: "Kickoff interview", time: "30 min", description: "Bilingual consultation with student and parent" },
+        { phase: "Live reading lab", time: "2×45 min", description: "Meaning‑first reading practice" },
+        { phase: "Context capsules", time: "20 min", description: "Watch short background videos and summarize" },
+        { phase: "Parent recap", time: "10 min", description: "Weekly report + at‑home activities" },
       ],
       timeHeadline: "Weekly time investment",
-      timeSubtitle: "언어 격차를 메우는 집중 시간",
-      totalCommitmentTitle: "Total weekly load: 2시간 30분 내외",
-      totalCommitmentSubtitle: "한국어/영어 모두 지원합니다.",
+      timeSubtitle: "Focused time that closes the language gap",
+      totalCommitmentTitle: "Total weekly load: about 2h 30m",
+      totalCommitmentSubtitle: "Support available in both languages.",
     },
     who: {
-      sectionTitle: "이런 학생에게 맞습니다",
-      sectionDescription: "Meaning-first 전략으로 언어 장벽을 넘고 싶은 가정",
+      sectionTitle: "Who this is for",
+      sectionDescription: "Families who want to cross the language gap with a meaning‑first strategy",
       identities: [
         {
           id: "student",
           icon: <Target className="w-5 h-5" />,
           title: "Bilingual student",
-          statement: '"영어로 읽으면 머리가 하얘져요."',
-          details: "핵심 문장을 한국어로 이해한 뒤 영어로 다시 표현하며 자신감을 회복합니다.",
+          statement: '"English passages make my mind go blank."',
+          details: "We translate key sentences into plain language first, then restate in English to build confidence.",
         },
         {
           id: "parent",
           icon: <Users className="w-5 h-5" />,
-          title: "부모님",
-          statement: '"아이의 진짜 실력을 보고 싶어요."',
-          details: "한국어 리포트와 영상 요약으로 진행 상황을 분명히 확인할 수 있습니다.",
+          title: "Parent",
+          statement: '"I want to see my child\'s real ability."',
+          details: "Bilingual reports and video recaps make progress clear.",
         },
         {
           id: "family",
           icon: <Home className="w-5 h-5" />,
           title: "Immigrant family",
-          statement: '"미국식 배경지식이 부족해도 따라갈 수 있을까요?"',
-          details: "맥락 설명과 문화 비교 질문으로 지문이 낯설지 않게 만들어 드립니다.",
+          statement: '"Can we keep up without a lot of U.S. background knowledge?"',
+          details: "Context explainers and culture comparisons make passages feel familiar.",
         },
         {
           id: "mentor",
           icon: <Compass className="w-5 h-5" />,
           title: "Guidance counselor ally",
           statement: '"I need transparent data I can trust."',
-          details: "허가 시 학교 카운슬러와도 진도 데이터를 공유합니다.",
+          details: "With permission we share progress data with school counselors.",
         },
       ],
-      calloutTitle: "언어는 장벽이 아니라 자산입니다",
+      calloutTitle: "Language is not a barrier—it's an asset",
       calloutBody:
-        "두 언어를 모두 활용한 전략으로 의미를 먼저 붙잡으면, 시간 관리와 점수 상승이 동시에 이루어집니다.",
+        "When we lock meaning using both languages, timing control and scores rise together.",
     },
     faq: {
-      sectionTitle: "이민 가정 FAQ",
+      sectionTitle: "Bilingual family FAQ",
       items: [
         {
-          question: "수업은 영어로만 진행되나요?",
+          question: "Are sessions only in English?",
           answer:
-            "핵심 설명은 한국어·영어를 섞어 진행하고, 최종 실전 연습은 영어로 연습하도록 돕습니다.",
+            "Core explanations use both languages; final practice is in English.",
         },
         {
-          question: "배경지식이 없어서 지문이 이해되지 않아요.",
+          question: "We lack background knowledge. Can we still improve?",
           answer:
-            "지문 주제별로 필요한 역사·과학 맥락을 짧은 영상과 노트로 먼저 학습합니다.",
+            "We pre‑teach topic context with short capsules before tackling passages.",
         },
         {
-          question: "부모도 내용을 이해하고 싶어요.",
+          question: "We want parents to understand the process.",
           answer:
-            "모든 리포트를 두 언어로 제공하고, 필요 시 통역이 포함된 상담을 잡아 드립니다.",
+            "We provide bilingual reports and video summaries; interpretation is available.",
         },
         {
-          question: "문법과 어휘도 다뤄주나요?",
+          question: "Do you cover grammar and vocabulary?",
           answer:
-            "물론입니다. 다만 의미 이해를 먼저 잡은 뒤, 문법/어휘를 연결해 자연스럽게 정리합니다.",
+            "Yes—after meaning is secure, we connect grammar and vocabulary naturally.",
         },
         {
-          question: "미국식 에세이 작성도 도와주나요?",
+          question: "Do you help with American‑style essays?",
           answer:
-            "희망 시 영어 에세이 구조와 표현도 병행 지도합니다.",
+            "Yes, we can add essay structure and expression coaching.",
         },
       ],
-      footerText: "언어 고민을 Fit Check에 적어주시면 바로 대응 전략을 설계합니다.",
+      footerText: "Share language concerns in the Fit Check and we\'ll design a response strategy.",
     },
     sevenDay: {
       sectionTitle: "First 7 days: bilingual launch",
-      sectionSubtitle: "의미 파악과 어휘 루틴을 동시에 시작합니다.",
+      sectionSubtitle: "We launch meaning and vocabulary routines at the same time.",
       focusHeading: "What we build",
       focusGroups: [
         {
           heading: "Meaning anchors",
           items: [
-            "• 핵심 문장 번역 노트",
-            "• 지문 구조 템플릿",
-            "• 질문 유형별 키워드",
+            "• Key sentence translation notes",
+            "• Passage structure template",
+            "• Keywords by question type",
           ],
         },
         {
           heading: "Context boosters",
           items: [
-            "• 배경지식 캡슐",
-            "• 문화 비교 질문",
-            "• 어휘 반복 루틴",
+            "• Background knowledge capsules",
+            "• Cross‑culture comparison prompts",
+            "• Vocabulary repetition loops",
           ],
         },
       ],
       experienceHeading: "What you'll notice",
       experienceItems: [
-        "지문을 한국어로 설명할 수 있게 됨",
-        "단어 뜻이 아닌 문장 전체 의미가 보임",
-        "속도보다 이해도가 먼저 올라감",
+        "Can explain a passage in both languages",
+        "See full‑sentence meaning, not just isolated words",
+        "Comprehension rises before speed",
       ],
       timelineTitle: "7-day rollout",
       timeline: [
-        { day: "Day 1", activity: "언어 진단", description: "한/영 think-aloud" },
-        { day: "Day 2", activity: "Scaffold 제작", description: "문장/구조 노트 설계" },
-        { day: "Day 3-4", activity: "Context capsule", description: "배경지식 채우기" },
-        { day: "Day 5", activity: "Dual passage lab", description: "이중 언어 요약" },
-        { day: "Day 6-7", activity: "Confidence check", description: "실전 지문 적용 + 피드백" },
+        { day: "Day 1", activity: "Language diagnostics", description: "Bilingual think‑aloud" },
+        { day: "Day 2", activity: "Scaffold build", description: "Sentence/structure note templates" },
+        { day: "Day 3-4", activity: "Context capsule", description: "Fill background knowledge" },
+        { day: "Day 5", activity: "Dual passage lab", description: "Summarize in both languages" },
+        { day: "Day 6-7", activity: "Confidence check", description: "Apply to fresh passages + feedback" },
       ],
-      timelineOutcome: "Outcome: 새로운 지문도 두 언어로 설명 가능",
+      timelineOutcome: "Outcome: Can explain new passages in both languages",
     },
   },
   artist: {
     label: "Creative/art-focused student",
     hero: {
-      badge: "예술 전공 준비생 전용",
+      badge: "For art‑school applicants",
       headline: {
         pre: "Channel your creative discipline into ",
         highlight: "SAT certainty",
         post: "",
       },
       subheadline:
-        "스튜디오 워크플로우를 시험 전략으로 번역해 포트폴리오와 점수를 동시에 끌어올립니다.",
+        "We translate studio workflows into exam strategy so portfolio and score rise together.",
       stats: [
         { value: "3 labs", label: "Visual strategy remixes per week" },
         { value: "180+ pt", label: "Creative-track average lift" },
       ],
-      ctaLabel: "포트폴리오와 SAT 둘 다 잡는 방법 보기",
-      ctaHelper: "3분 Fit Check • 현재 스튜디오 일정 공유",
+      ctaLabel: "See how to secure both portfolio and SAT",
+      ctaHelper: "3-minute Fit Check • Share your studio schedule",
       progressTitle: "Creative Strategy Dashboard",
       progressBadge: "Design Meets Data",
       floatingLabel: "Artist-first coaching pod",
@@ -979,7 +979,7 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
         post: " into test skills",
       },
       description:
-        "창작력을 죽이는 주입식 대신, 디자인 프로세스를 시험 전략으로 옮겨 놓습니다.",
+        "Instead of rote drills that kill creativity, we move your design process into test strategy.",
       beliefs: [
         {
           title: "Our approach",
@@ -1004,7 +1004,7 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
         post: "",
       },
       principlesDescription:
-        "우리는 창의성을 억압하지 않고, 그 힘을 점수 향상에 연결합니다.",
+        "We don’t suppress creativity; we channel it into score gains.",
       principles: [
         {
           number: "01",
@@ -1082,40 +1082,40 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
       ],
       closingTitle: "Art and score rise together",
       closingDescription:
-        "포트폴리오 손상 없이 SAT 목표를 달성해, 예술대 장학금과 합격 가능성을 극대화합니다.",
+        "Achieve SAT goals without harming the portfolio, maximizing art‑school scholarships and admissions odds.",
     },
     parentCommunication: {
       badge: "For creative families",
-      title: "스튜디오와 시험을 동시에 관리",
+      title: "Manage the studio and the SAT together",
       description:
-        "포트폴리오 일정과 SAT 진행 상황을 한 눈에 볼 수 있도록 맞춤 리포트를 제공합니다.",
+        "We provide concise reports that show portfolio deadlines and SAT progress at a glance.",
       features: [
         {
           icon: <Calendar className="w-6 h-6 text-accent" />,
           title: "Studio-synced calendar",
-          description: "포트폴리오 마감, 리허설, 시험 일정을 하나의 루틴으로 통합.",
+          description: "Combine portfolio deadlines, rehearsals, and exam dates into one routine.",
         },
         {
           icon: <Sparkles className="w-6 h-6 text-accent" />,
           title: "Creative progress reels",
-          description: "학생의 전략 스케치와 결과물을 영상/이미지로 공유해 진짜 성장을 보여줍니다.",
+          description: "Share strategy sketches and outcomes via short videos or images.",
         },
         {
           icon: <Shield className="w-6 h-6 text-accent" />,
           title: "Scholarship tracker",
-          description: "지원하려는 학교와 장학금 요건을 매니저가 직접 모니터링합니다.",
+          description: "Manager tracks target schools and scholarship requirements.",
         },
       ],
       timeItems: [
-        { phase: "Studio briefing", time: "30 min", description: "포트폴리오/오디션 일정 파악" },
-        { phase: "Design labs", time: "3×30 min", description: "비주얼 전략 + 문제 해결" },
-        { phase: "Solo rehearsal", time: "40 min", description: "시험 대비 스프린트" },
-        { phase: "Parent showcase", time: "10 min", description: "주간 영상 리포트 + 다음 목표" },
+        { phase: "Studio briefing", time: "30 min", description: "Map portfolio/audition timeline" },
+        { phase: "Design labs", time: "3×30 min", description: "Visual strategy + problem solving" },
+        { phase: "Solo rehearsal", time: "40 min", description: "Test‑prep sprints" },
+        { phase: "Parent showcase", time: "10 min", description: "Weekly video recap + next goal" },
       ],
       timeHeadline: "Weekly time investment",
-      timeSubtitle: "창작 에너지를 지키는 SAT 루틴",
-      totalCommitmentTitle: "Total weekly load: 창작 3h + SAT 2h",
-      totalCommitmentSubtitle: "스튜디오 일정에 맞춰 유연하게 조정됩니다.",
+      timeSubtitle: "An SAT routine that protects creative energy",
+      totalCommitmentTitle: "Total weekly load: 3h studio + 2h SAT",
+      totalCommitmentSubtitle: "Adjusted flexibly to studio deadlines.",
     },
     who: {
       sectionTitle: "Who this lane serves",
@@ -1127,102 +1127,102 @@ const PERSONA_CONFIGS: Record<PersonaKey, PersonaConfig> = {
           title: "Portfolio-ready artist",
           statement: '"I think in images. Help me see the test."',
           details:
-            "시각적 프레임워크로 독해와 수학 문제를 이해하게 도와드립니다.",
+            "We use visual frameworks to make reading and math problems intuitive.",
         },
         {
           id: "parent",
           icon: <Users className="w-5 h-5" />,
           title: "Parent investor",
           statement: '"I need proof this will protect auditions."',
-          details: "포트폴리오 시간을 보장하면서 점수 상승 데이터를 제공합니다.",
+          details: "We protect portfolio time while showing data‑backed score gains.",
         },
         {
           id: "mentor",
           icon: <Compass className="w-5 h-5" />,
           title: "Art mentor",
           statement: '"Keep them in flow but ready for the SAT."',
-          details: "요청 시 멘토와도 커뮤니케이션하여 일정을 조율합니다.",
+          details: "With permission we coordinate directly with mentors to align schedules.",
         },
         {
           id: "scholar",
           icon: <Sparkles className="w-5 h-5" />,
           title: "Scholarship hunter",
           statement: '"I want the score that unlocks funding."',
-          details: "장학금 컷라인에 맞춘 전략과 데이터 스토리텔링을 제공합니다.",
+          details: "We align strategy and data storytelling to scholarship targets.",
         },
       ],
       calloutTitle: "Creativity is your advantage",
       calloutBody:
-        "우리는 창작 프로세스를 시험 전략으로 연결해, 학생이 자신만의 방식으로 고득점을 달성하게 합니다.",
+        "We connect creative process to exam strategy so students score high in their own way.",
     },
     faq: {
       sectionTitle: "Creative family FAQ",
       items: [
         {
-          question: "SAT 준비가 포트폴리오 시간을 잡아먹지 않을까요?",
+          question: "Will SAT prep eat portfolio time?",
           answer:
-            "스튜디오 일정에 맞춘 30-40분 스프린트로 설계해 창작 시간을 지키면서 점수를 올립니다.",
+            "We design 30–40 minute sprints aligned to studio blocks so art time stays protected.",
         },
         {
-          question: "예술적 강점을 어떻게 시험 전략으로 연결하나요?",
+          question: "How do you connect creative strengths to test strategy?",
           answer:
-            "시각적 스토리보드, 패턴 인식 훈련, 메타포를 활용해 이해와 기억을 돕습니다.",
+            "We use visual storyboards, pattern recognition exercises, and metaphors to aid understanding and memory.",
         },
         {
-          question: "지원 학교와 장학금 요건도 관리해 주나요?",
+          question: "Do you track target schools and scholarships?",
           answer:
-            "목표 학교 정보를 받아 점수·포트폴리오 체크리스트를 함께 관리합니다.",
+            "Yes—we manage score and portfolio checklists against your target list.",
         },
         {
-          question: "팀 프로젝트나 공연 시즌에도 유연하게 조정되나요?",
+          question: "What about performance season?",
           answer:
-            "물론입니다. 공연/전시 기간에는 비동기 과제와 짧은 리캡으로 전환합니다.",
+            "We switch to async tasks and short recaps during shows or exhibits.",
         },
         {
-          question: "수학/과학 약점도 커버되나요?",
+          question: "Do you cover math/science weaknesses?",
           answer:
-            "시각화와 패턴 분석을 활용해 수학, 데이터 분석 문제도 쉽게 이해하도록 돕습니다.",
+            "We leverage visualization and pattern analysis to make quantitative items approachable.",
         },
       ],
-      footerText: "Fit Check에서 포트폴리오 일정과 목표 학교를 알려주세요.",
+      footerText: "Share your studio deadlines and target schools in the Fit Check.",
     },
     sevenDay: {
       sectionTitle: "First 7 days: creative alignment",
-      sectionSubtitle: "스튜디오 루틴 속에 SAT 루틴을 심습니다.",
+      sectionSubtitle: "We embed an SAT routine inside the studio routine.",
       focusHeading: "What we create",
       focusGroups: [
         {
           heading: "Design-driven tools",
           items: [
-            "• 비주얼 패시지 보드",
-            "• 스케치북 문제 노트",
-            "• 타이머 리듬 가이드",
+            "• Visual passage boards",
+            "• Sketchbook problem notes",
+            "• Timer rhythm guide",
           ],
         },
         {
           heading: "Confidence loops",
           items: [
-            "• Critique-style 피드백",
-            "• 스몰 윈 갤러리",
-            "• 장학금 목표와 연결된 KPI",
+            "• Critique‑style feedback",
+            "• Small‑wins gallery",
+            "• KPIs tied to scholarship goals",
           ],
         },
       ],
       experienceHeading: "What you'll notice",
       experienceItems: [
-        "학생이 전략 스케치를 자랑",
-        "포트폴리오와 SAT가 같은 노트에 기록",
-        "불안이 줄고 실행력이 올라감",
+        "Student shows off strategy sketches",
+        "Portfolio and SAT live in the same notebook",
+        "Anxiety down, execution up",
       ],
       timelineTitle: "7-day rollout",
       timeline: [
-        { day: "Day 1", activity: "Studio intake", description: "창작 루틴 + 시험 목표" },
-        { day: "Day 2", activity: "Visual toolkit", description: "전략 보드 제작" },
-        { day: "Day 3-4", activity: "Design labs", description: "비주얼 전략 적용" },
-        { day: "Day 5", activity: "Timed rehearsal", description: "스프린트 + 피드백" },
-        { day: "Day 6-7", activity: "Showcase recap", description: "데이터 + 포트폴리오 연결" },
+        { day: "Day 1", activity: "Studio intake", description: "Studio routine + test goals" },
+        { day: "Day 2", activity: "Visual toolkit", description: "Build strategy boards" },
+        { day: "Day 3-4", activity: "Design labs", description: "Apply visual strategies" },
+        { day: "Day 5", activity: "Timed rehearsal", description: "Sprint + feedback" },
+        { day: "Day 6-7", activity: "Showcase recap", description: "Connect data to portfolio" },
       ],
-      timelineOutcome: "Outcome: 스튜디오 일정 안에서 SAT 루틴 정착",
+      timelineOutcome: "Outcome: SAT routine anchored to the studio schedule",
     },
   },
 };
