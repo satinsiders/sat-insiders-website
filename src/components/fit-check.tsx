@@ -32,6 +32,7 @@ const ENTRY = {
   studyConstraints: "entry.1080207754",
   specificGoals: "entry.1157345934",
   source: "entry.1782156686",
+  audience: "entry.846870769",
 };
 
 const PREV_TUTORING_LABEL: Record<string, string> = {
@@ -75,6 +76,16 @@ export function FitCheck({ onReturn, source = 'tutoring' }: FitCheckProps) {
   });
 
   const totalSteps = 4;
+
+  // Capture persona audience from URL if present (e.g., /tutoring?audience=athlete)
+  const audienceParam = (() => {
+    try {
+      return new URLSearchParams(window.location.search).get('audience') || '';
+    } catch {
+      return '';
+    }
+  })();
+  const audienceValue = (audienceParam || 'general').trim();
 
   const challenges = [
     "Time management during sections",
@@ -146,6 +157,9 @@ export function FitCheck({ onReturn, source = 'tutoring' }: FitCheckProps) {
       params.append(ENTRY.studentName, formData.studentName);
       params.append(ENTRY.phoneNumber, formData.phoneNumber);
       params.append(ENTRY.source, source === 'tutoring' ? 'Tutoring' : 'Program');
+      if (ENTRY.audience && !ENTRY.audience.endsWith('__REPLACE_WITH_AUDIENCE_ENTRY_ID__')) {
+        params.append(ENTRY.audience, audienceValue);
+      }
 
       // Optional fields
       if (formData.currentScore) {

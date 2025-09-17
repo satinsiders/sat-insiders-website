@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MainHeader } from "./components/main-header";
 import { MainFooter } from "./components/main-footer";
 import { FitCheck } from "./components/fit-check";
@@ -8,9 +8,23 @@ import { StudentRights } from "./pages/student-rights";
 import { ComplaintProcess } from "./pages/complaint-process";
 import { TutoringPage } from "./pages/tutoring";
 import { ProgramPage } from "./pages/program";
+import { PersonaKey, TutoringPersonaPage } from "./pages/tutoring-persona";
+
+type PersonaPageKey = `tutoring-${PersonaKey}`;
+
+type PageKey =
+  | "home"
+  | "tutoring"
+  | "program"
+  | "fit-check"
+  | "privacy"
+  | "terms"
+  | "student-rights"
+  | "complaints"
+  | PersonaPageKey;
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'tutoring' | 'program' | 'fit-check' | 'privacy' | 'terms' | 'student-rights' | 'complaints'>('home');
+  const [currentPage, setCurrentPage] = useState<PageKey>('home');
   const [fitCheckSource, setFitCheckSource] = useState<'tutoring' | 'program'>('tutoring'); // Track fit check source
 
   const goToFitCheck = (source: 'tutoring' | 'program' = 'tutoring') => {
@@ -25,8 +39,40 @@ export default function App() {
   const goToStudentRights = () => setCurrentPage('student-rights');
   const goToComplaints = () => setCurrentPage('complaints');
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const audienceParam = params.get('audience');
+    if (!audienceParam) {
+      return;
+    }
+
+    const normalized = audienceParam.toLowerCase();
+    const personaMap: Partial<Record<string, PersonaKey>> = {
+      athlete: 'athlete',
+      adhd: 'adhd',
+      immigrant: 'immigrant',
+      artist: 'artist',
+    };
+
+    const persona = personaMap[normalized];
+    if (persona) {
+      setCurrentPage(`tutoring-${persona}`);
+    }
+  }, []);
+
   if (currentPage === 'tutoring') {
     return <TutoringPage onReturn={goToHome} onGoToFitCheck={() => goToFitCheck('tutoring')} />;
+  }
+
+  if (currentPage.startsWith('tutoring-')) {
+    const persona = currentPage.replace('tutoring-', '') as PersonaKey;
+    return (
+      <TutoringPersonaPage
+        persona={persona}
+        onReturn={goToHome}
+        onGoToFitCheck={() => goToFitCheck('tutoring')}
+      />
+    );
   }
 
   if (currentPage === 'program') {
